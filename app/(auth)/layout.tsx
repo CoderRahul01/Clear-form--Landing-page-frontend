@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Logo from "@/components/ui/logo";
 import AuthBg from "@/public/images/auth-bg.svg";
 
 export default function AuthLayout({
@@ -14,7 +13,7 @@ export default function AuthLayout({
           <div className="flex h-16 items-center justify-between md:h-20">
             {/* Site branding */}
             <div className="mr-4 shrink-0">
-              <Logo />
+                <Image src='/images/logo.png' width={28} height={28} alt="Logo" />
             </div>
           </div>
         </div>
