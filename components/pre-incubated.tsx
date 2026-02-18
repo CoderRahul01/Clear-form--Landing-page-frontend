@@ -8,7 +8,7 @@ import MeitY from "@/public/images/MeitYStartup.png";
 
 export default function PreIncubated() {
     return (
-        <section className="relative py-0">
+        <section className="relative py-0 my-10">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 {/* Main content */}
                 <div className="mb-12 text-center md:mb-8 pb-1fx ">

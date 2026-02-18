@@ -74,7 +74,6 @@ export default function HeroHome() {
                         data-aos-delay={600}
                     >
                     </div>
-
                 </div>
             </div>
         </section >

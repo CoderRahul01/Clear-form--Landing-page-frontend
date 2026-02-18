@@ -4,7 +4,8 @@ export const metadata = {
 };
 
 import Hero from "@/components/hero-home";
-import HeroDemo from "@/components/hero-demo";
+import DemoNav from "@/components/demoNav";
+import Dashboard from "@/components/dashboard";
 import BusinessCategories from "@/components/business-categories";
 import FeaturesPlanet from "@/components/features-planet";
 import LargeTestimonial from "@/components/large-testimonial";
@@ -16,7 +17,8 @@ export default function Home() {
     <>
       <Hero />
       <PreIncubated />
-      <HeroDemo />
+      <Dashboard />
+      <DemoNav />
       <BusinessCategories />
       <FeaturesPlanet />
       <LargeTestimonial />
