@@ -5,22 +5,13 @@ export default function Dashboard() {
     <div className="py-40 text-center">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          {/* Text Content */}
-          <div className="flex flex-col justify-center text-left lg:col-span-1" data-aos="fade-right" data-aos-duration="800">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900">Your Dashboard Awaits</h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Get a comprehensive overview of all your metrics and data in one intuitive dashboard. Monitor performance, track trends, and make data-driven decisions with real-time insights at your fingertips.
-            </p>
-            <div className="h-12 w-40 rounded-lg bg-blue-600 text-white font-semibold flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-              Explore Dashboard
-            </div>
-          </div>
+         
 
           {/* Video Container */}
           <div
             className="flex items-center justify-center lg:col-span-2"
-            data-aos="fade-left"
-            data-aos-duration="800"
+            data-aos="fade-right"
+            data-aos-duration="1100"
           >
             <div
               className="relative w-full rounded-3xl overflow-hidden shadow-2xl"
@@ -37,12 +28,22 @@ export default function Dashboard() {
                 loop
                 playsInline
                 preload="metadata"
-                poster="/images/video-thumbnails/dashboard.jpg"
                 className="w-full h-full object-cover"
                 src="/videos/Dashboard.mp4"
               />
               {/* Glass effect overlay */}
               <div className="absolute inset-0 pointer-events-none rounded-3xl bg-linear-to-br from-white/10 via-transparent to-transparent" />
+            </div>
+          </div>
+           {/* Text Content */}
+          <div className="flex flex-col justify-center text-left lg:col-span-1" data-aos="fade-left" data-aos-duration="1100">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">Your Feedback, Structured for Decisions</h2>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+              See what matters instantly. Clearform turns raw responses into structured signals — so you don’t just view data, you understand it. Track clarity, quality, and decision-readiness in one place.
+
+            </p>
+            <div className="h-12 w-40 rounded-lg bg-blue-600 text-white font-semibold flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
+              Explore Dashboard
             </div>
           </div>
         </div>

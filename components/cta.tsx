@@ -1,10 +1,29 @@
 import Image from "next/image";
 import Stripes from "@/public/images/stripes-dark.svg";
+import Link from "next/link";
 
 export default function Cta() {
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <style>{`
+        @keyframes shift-gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        .gradient-button {
+          background: linear-gradient(-45deg, #ff4338, #ef4444, #dc2626, #b91c1c);
+          background-size: 300% 300%;
+          animation: shift-gradient 6s ease infinite;
+          box-shadow: 0 0 20px rgba(255, 67, 56, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-button:hover {
+          animation: pulse-glow 1s ease-in-out infinite, shift-gradient 1s ease infinite;
+        }
+      `}</style>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 my-15">
         <div
           className="relative overflow-hidden rounded-2xl text-center shadow-xl before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:bg-gray-900"
           data-aos="zoom-y-out"
@@ -31,20 +50,22 @@ export default function Cta() {
           </div>
           <div className="px-4 py-12 md:px-12 md:py-20">
             <h2 className="mb-6 border-y text-3xl font-bold text-gray-200 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-700/.7),transparent)1] md:mb-12 md:text-4xl">
-              Create your next project with Clearform
+              Start Your Feedback Intelligence Journey Today
             </h2>
             <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-              <a
-                className="btn group mb-4 w-full bg-linear-to-t from-blue-600 to-blue-500 bg-size-[100%_100%] bg-bottom text-white shadow-sm hover:bg-size-[100%_150%] sm:mb-0 sm:w-auto"
-                href="#0"
-              >
-                <span className="relative inline-flex items-center">
-                  Start Free Trial{" "}
-                  <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
-                    -&gt;
+              <Link href="/early-access">
+                <button
+                  className="gradient-button px-8 py-3 text-white rounded-xl whitespace-nowrap font-bold shadow-2xl transition-all duration-300 text-lg tracking-wide relative overflow-hidden group hover:scale-105"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Get Early Access
+                    <span className="group-hover:translate-x-1 transition-transform duration-100">→</span>
                   </span>
-                </span>
-              </a>
+                  <div 
+                    className="absolute inset-0 bg-linear-to-r from-red-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-100"
+                  />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

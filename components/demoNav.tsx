@@ -6,23 +6,20 @@ const videoData = {
   startups: {
     label: 'Monitor',
     videoSrc: '/videos/Trends.mp4',
-    posterSrc: '/images/video-thumbnails/monitor.jpg',
-    title: 'Monitor Your Performance',
-    description: 'Track real-time insights and stay updated with continuous monitoring of your key metrics and activities.',
+    title: 'Monitor Real Signals',
+    description: 'Capture responses across forms and channels in real time. Track submission flow, engagement velocity, and emerging patterns without digging through noise.',
   },
   webapps: {
     label: 'Measure',
     videoSrc: '/videos/PerformanceSnapshot.mp4',
-    posterSrc: '/images/video-thumbnails/measure.jpg',
     title: 'Measure What Matters',
-    description: 'Analyze comprehensive data and uncover actionable insights to understand what drives your success.',
+    description: 'Go beyond sentiment. Evaluate response clarity, completeness, and decision-readiness using logic-based scoring — not vanity metrics.',
   },
   ecommerce: {
     label: 'Act',
     videoSrc: '/videos/inbox.mp4',
-    posterSrc: '/images/video-thumbnails/act.jpg',
     title: 'Act with Confidence',
-    description: 'Make informed decisions quickly and implement changes that create real impact on your business growth.',
+    description: 'Export structured insights, trigger workflows, and align your team around clear signals — not assumptions. Make faster decisions with less guesswork.',
   },
 };
 
@@ -49,12 +46,12 @@ export default function DemoNav() {
       `}</style>
       
       {/* Navigation Tabs */}
-      <div className="mb-15 inline-flex gap-3 rounded-3xl bg-white/80 p-2 shadow-xl backdrop-blur-xl border border-grey-50">
+      <div className="mb-15 inline-flex gap-3 rounded-3xl bg-white/80 p-2 shadow-xl backdrop-blur-xl border border-grey-50" data-aos="fade-in" data-aos-duration="800">
         {Object.entries(videoData).map(([key, data]) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`flex items-center gap-2 rounded-xl px-5 py-2 font-medium transition-all duration-300 ${
+            className={`flex items-center gap-2 rounded-xl px-5 text-[16px] py-2 font-semibold transition-all duration-300 ${
               activeTab === key
                 ? 'bg-gray-800 text-white shadow-lg'
                 : 'bg-transparent text-gray-700 hover:text-gray-900'
@@ -76,7 +73,7 @@ export default function DemoNav() {
             key={`video-${activeTab}`}
             className="w-3/5 flex items-center justify-center animate-float-in" 
             data-aos="fade-up"
-            data-aos-duration="800"
+            data-aos-duration="900"
             data-aos-easing="ease-out-quad"
           >
             <div
@@ -97,7 +94,6 @@ export default function DemoNav() {
                 loop
                 playsInline
                 preload="metadata"
-                poster={currentVideo.posterSrc}
                 className="w-full h-full object-cover"
                 src={currentVideo.videoSrc}
               />
@@ -107,7 +103,7 @@ export default function DemoNav() {
           </div>
 
           {/* Text Content - 40% */}
-          <div key={`text-${activeTab}`} className="w-2/5 my-auto animate-float-in " data-aos="fade-left" data-aos-duration="800">
+          <div key={`text-${activeTab}`} className="w-2/5 my-auto animate-float-in " data-aos="fade-left" data-aos-duration="900">
             <div className='flex-col items-start inline-flex'>
               <h2 className="text-4xl font-bold mb-4 text-gray-900">{currentVideo.title}</h2>
               <p className="text-lg text-gray-600 mb-8 text-start">{currentVideo.description}</p>

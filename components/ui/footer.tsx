@@ -2,20 +2,30 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer({ border = false }: { border?: boolean }) {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
   return (
     <footer>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Top area: Blocks */}
         <div
-          className={`grid gap-10 py-8 sm:grid-cols-12 md:py-12 ${border ? "border-t [border-image:linear-gradient(to_right,transparent,var(--color-slate-200),transparent)1]" : ""}`}
+          className={`grid gap-10 py-8 sm:grid-cols-12 md:py-12 ${border ? " [border-image:linear-gradient(to_right,transparent,var(--color-slate-200),transparent)1]" : ""}`}
         >
           {/* 1st block */}
           <div className="space-y-2 sm:col-span-12 lg:col-span-4">
-            <div className="-ml-0.5">
+            <button onClick={scrollToTop} className="-ml-0.5 cursor-pointer hover:opacity-80 transition-opacity" aria-label="Scroll to top">
               <Image src='/images/logowname.png' width={108} height={108} alt="Logo" />
-            </div>
+            </button>
+            <p className="text-sm text-gray-600 max-w-xs">
+              Clearform helps teams collect structured, high-quality responses and turn them into clear decisions.
+            </p>
             <div className="text-sm text-gray-600">
-              &copy; Clearform - All rights reserved.
+              © 2026 Clearform. All rights reserved.
             </div>
           </div>
 
@@ -28,7 +38,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Features
+                  How it works
                 </Link>
               </li>
               <li>
@@ -44,7 +54,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Pricing & Plans
+                  Pricing
                 </Link>
               </li>
               <li>
@@ -55,37 +65,13 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   Changelog
                 </Link>
               </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Our method
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* 3rd block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Company</h3>
+            <h3 className="text-sm font-medium">Resources</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Diversity & Inclusion
-                </Link>
-              </li>
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
@@ -99,7 +85,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Careers
+                  Help / FAQ
                 </Link>
               </li>
               <li>
@@ -107,7 +93,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Financial statements
+                  Documentation
                 </Link>
               </li>
             </ul>
@@ -115,14 +101,14 @@ export default function Footer({ border = false }: { border?: boolean }) {
 
           {/* 4th block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Resources</h3>
+            <h3 className="text-sm font-medium">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Community
+                  About
                 </Link>
               </li>
               <li>
@@ -130,7 +116,22 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Terms of service
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 5th block - Legal */}
+          <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <h3 className="text-sm font-medium">Legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  className="text-gray-600 transition hover:text-gray-900"
+                  href="/privacy-policy"
+                >
+                  Privacy Policy
                 </Link>
               </li>
               <li>
@@ -138,7 +139,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   className="text-gray-600 transition hover:text-gray-900"
                   href="#0"
                 >
-                  Report a vulnerability
+                  Terms of Service
                 </Link>
               </li>
             </ul>
@@ -150,7 +151,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
             <ul className="flex gap-1">
               <li>
                 <Link
-                  className="flex items-center justify-center text-[#f94237] transition hover:text-[#f94237]/80"
+                  className="flex items-center justify-center text-[#000000] transition hover:text-[#f94237]/80"
                   href="#0"
                   aria-label="Twitter"
                 >
@@ -165,7 +166,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="flex items-center justify-center text-[#f94237] transition hover:text-[#f94237]/80"
+                  className="flex items-center justify-center text-[#0b0b0b] transition hover:text-[#f94237]/80"
                   href="#0"
                   aria-label="Medium"
                 >
@@ -180,7 +181,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               </li>
               <li>
                 <Link
-                  className="flex items-center justify-center text-[#f94237] transition hover:text-[#f94237]/80"
+                  className="flex items-center justify-center text-[#030303] transition hover:text-[#f94237]/80"
                   href="#0"
                   aria-label="Github"
                 >
@@ -209,6 +210,6 @@ export default function Footer({ border = false }: { border?: boolean }) {
           <div className="h-56 w-56 rounded-full border-20 border-[#F94136] blur-[80px]"></div>
         </div>
       </div>
-    </footer>
+    </footer>  
   );
 }
