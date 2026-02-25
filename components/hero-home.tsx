@@ -27,7 +27,7 @@ export default function HeroHome() {
                 }
             `}</style>
             <PageIllustration />
-            <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 {/* Hero content */}
                 <div className="pb-12 pt-32 md:pb-0 md:pt-35">
                     {/* Section header */}
@@ -51,7 +51,7 @@ export default function HeroHome() {
                             data-aos="zoom-y-out"
                             data-aos-delay={150}
                         >
-                            <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900  drop-shadow-sm" style={{ opacity: 1, filter: "blur(0px)" }}>Forms Built for <br className="md:hidden" /><span className="text-gray-900">Clarity, Not Just Collection.</span></h1>
+                            <h1 id="hero-heading" className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900  drop-shadow-sm" style={{ opacity: 1, filter: "blur(0px)" }}>Forms Built for <br className="md:hidden" /><span className="text-gray-900">Clarity, Not Just Collection.</span></h1>
                         </div>
                         <div className="mx-auto max-w-3xl">
                             <p

@@ -67,11 +67,11 @@ export default function DemoNav() {
 
       {/* 60/40 Split Layout */}
       <div className="mx-auto max-w-345 px-4 sm:px-6">
-        <div className="flex gap-12 items-stretch">
+        <div className="md:flex  gap-12 items-stretch">
           {/* Video Container - 60% */}
           <div
             key={`video-${activeTab}`}
-            className="w-3/5 flex items-center justify-center animate-float-in" 
+            className="md:w-3/5 flex items-center justify-center animate-float-in" 
             data-aos="fade-up"
             data-aos-duration="900"
             data-aos-easing="ease-out-quad"
@@ -103,12 +103,12 @@ export default function DemoNav() {
           </div>
 
           {/* Text Content - 40% */}
-          <div key={`text-${activeTab}`} className="w-2/5 my-auto animate-float-in " data-aos="fade-left" data-aos-duration="900">
-            <div className='flex-col items-start inline-flex'>
+          <div key={`text-${activeTab}`} className="md:w-2/5 my-auto animate-float-in " data-aos="fade-left" data-aos-duration="900">
+            <div className='flex-col md:items-start inline-flex mt-8'>
               <h2 className="text-4xl font-bold mb-4 text-gray-900">{currentVideo.title}</h2>
-              <p className="text-lg text-gray-600 mb-8 text-start">{currentVideo.description}</p>
+              <p className="text-lg text-gray-600 mb-8 md:text-start">{currentVideo.description}</p>
               {/* Placeholder for future CTA button */}
-              <div className="h-12 w-32 rounded-lg bg-blue-600 text-white font-semibold flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
+              <div className="h-12 w-32 rounded-lg mx-auto md:mx-0 bg-blue-600 text-white font-semibold flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
                 Learn More
               </div>
             </div>

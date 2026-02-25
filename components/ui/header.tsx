@@ -18,7 +18,7 @@ export default function Header() {
   const navLinks = [
     { href: "/product", label: "Product" },
     { href: "/how-it-works", label: "How It Works" },
-    { href: "/pricing", label: "Pricing" },
+    { href: "/integrations", label: "Integrations" },
     { href: "/blog", label: "Blog" },
   ];
 
@@ -110,7 +110,7 @@ export default function Header() {
                 style={{ animationDelay: "0.4s" }}
               >
                 <Link
-                  href="/signup"
+                  href="/early-access"
                   onClick={closeMenu}
                   className="block w-full text-center bg-gray-800 text-gray-200 shadow-sm hover:bg-gray-900 transition-all duration-200 rounded-lg px-4 py-3 text-[14px] font-medium hover:scale-105"
                 >

@@ -37,14 +37,11 @@ export default function Dashboard() {
           </div>
            {/* Text Content */}
           <div className="flex flex-col justify-center text-left lg:col-span-1" data-aos="fade-left" data-aos-duration="1100">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900">Your Feedback, Structured for Decisions</h2>
+            <h2 className="text-[30px] font-bold mb-6 text-gray-900">Your Feedback, Structured for Decisions</h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               See what matters instantly. Clearform turns raw responses into structured signals — so you don’t just view data, you understand it. Track clarity, quality, and decision-readiness in one place.
 
             </p>
-            <div className="h-12 w-40 rounded-lg bg-blue-600 text-white font-semibold flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
-              Explore Dashboard
-            </div>
           </div>
         </div>
       </div>
