@@ -12,7 +12,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
   return (
     <footer>
       {/* Top gradient line - Full Width */}
-      <div className="w-full h-[1px] bg-linear-to-r from-transparent via-gray-400 to-transparent my-8 opacity-50" />
+      <div className="w-full h-px bg-linear-to-r from-transparent via-gray-400 to-transparent my-8 opacity-50" />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
 
@@ -40,7 +40,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href="#how-it-works"
                 >
                   How it works
                 </Link>
@@ -48,7 +48,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href="#integrations"
                 >
                   Integrations
                 </Link>
@@ -61,14 +61,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
                   Pricing
                 </Link>
               </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Changelog
-                </Link>
-              </li>
+            
             </ul>
           </div>
 
@@ -87,17 +80,9 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href="/faq"
                 >
                   Help / FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
-                  Documentation
                 </Link>
               </li>
             </ul>
@@ -110,7 +95,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href="/about"
                 >
                   About
                 </Link>
@@ -118,7 +103,7 @@ export default function Footer({ border = false }: { border?: boolean }) {
               <li>
                 <Link
                   className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
+                  href="/contact"
                 >
                   Contact
                 </Link>
