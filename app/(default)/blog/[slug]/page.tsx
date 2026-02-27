@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { posts } from "@/app/(default)/blog/posts";
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const getSectionId = (heading: string) =>
@@ -14,8 +14,9 @@ const getSectionId = (heading: string) =>
     .trim()
     .replace(/\s+/g, "-");
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = posts.find((item) => item.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = posts.find((item) => item.slug === slug);
 
   if (!post) {
     notFound();
