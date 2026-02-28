@@ -61,14 +61,47 @@ app.post("/api/leads", async (req, res) => {
         await resend.emails.send({
           from: `Clearform <${fromEmail}>`,
           to: [validatedData.email],
-          subject: 'Welcome to Clearform Early Access!',
+          subject: 'Welcome to Clearform Early Access! 🎉',
           html: `
-            <h2>Welcome to Clearform, ${validatedData.name}!</h2>
-            <p>Thank you for registering for our early access program.</p>
-            <p>We have successfully received your details (Location: ${validatedData.location}) and our team will be in touch with you shortly.</p>
-            <br/>
-            <p>Best regards,</p>
-            <p>The Clearform Team</p>
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9fafb; border-radius: 8px;">
+              <div style="text-align: center; padding: 30px 0;">
+                <h1 style="color: #111827; margin: 0; font-size: 32px; font-weight: 800; letter-spacing: -1px;">Clearform</h1>
+                <p style="color: #6b7280; font-size: 16px; margin-top: 5px;">The future of form analytics.</p>
+              </div>
+              
+              <div style="background-color: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+                <h2 style="color: #111827; font-size: 24px; margin-top: 0; font-weight: 700;">Welcome, ${validatedData.name}! 🎉</h2>
+                
+                <p style="color: #4b5563; font-size: 16px; line-height: 1.6;">
+                  Thank you for claiming your spot on the <strong>Clearform Early Access</strong> list. We're thrilled to have you onboard!
+                </p>
+                
+                <p style="color: #4b5563; font-size: 16px; line-height: 1.6;">
+                  We noticed you're joining us from ${validatedData.location}. Spots are extremely limited, but we've securely saved your details and you're officially in line.
+                </p>
+                
+                <div style="margin: 35px 0; padding: 20px; background-color: #f3f4f6; border-radius: 8px; border-left: 4px solid #111827;">
+                  <p style="color: #111827; font-size: 16px; margin: 0; font-weight: 600;">
+                    💡 What's next?
+                  </p>
+                  <p style="color: #4b5563; font-size: 15px; margin-top: 8px; margin-bottom: 0; line-height: 1.5;">
+                    We're putting the finishing touches on our beta. Keep an eye on this inbox—we'll notify you the moment your account is ready to be activated.
+                  </p>
+                </div>
+                
+                <p style="color: #4b5563; font-size: 16px; line-height: 1.6; margin-bottom: 0;">
+                  Best regards,<br/>
+                  <strong style="color: #111827;">The Clearform Team</strong>
+                </p>
+              </div>
+              
+              <div style="text-align: center; padding-top: 30px;">
+                <p style="color: #9ca3af; font-size: 13px;">
+                  © 2026 Clearform. All rights reserved.<br/>
+                  Bengaluru, India
+                </p>
+              </div>
+            </div>
           `
         });
       } catch (emailError) {
