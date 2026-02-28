@@ -3,6 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
 const { z } = require("zod");
+const { Resend } = require("resend");
+
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const app = express();
 const port = process.env.PORT || 8005;
@@ -50,7 +54,30 @@ app.post("/api/leads", async (req, res) => {
 
     const result = await pool.query(query, values);
 
-    // 3. Send success response
+    // 3. Send email via Resend (if configured)
+    if (resend) {
+      try {
+        const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+        await resend.emails.send({
+          from: `Clearform <${fromEmail}>`,
+          to: [validatedData.email],
+          subject: 'Welcome to Clearform Early Access!',
+          html: `
+            <h2>Welcome to Clearform, ${validatedData.name}!</h2>
+            <p>Thank you for registering for our early access program.</p>
+            <p>We have successfully received your details (Location: ${validatedData.location}) and our team will be in touch with you shortly.</p>
+            <br/>
+            <p>Best regards,</p>
+            <p>The Clearform Team</p>
+          `
+        });
+      } catch (emailError) {
+        console.error("Failed to send email via Resend:", emailError);
+        // We don't throw here to ensure the user still gets a success response for form submission
+      }
+    }
+
+    // 4. Send success response
     res.status(201).json({
       success: true,
       message: "Lead created successfully",
