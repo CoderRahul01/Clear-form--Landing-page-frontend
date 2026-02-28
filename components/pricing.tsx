@@ -3,7 +3,7 @@
 import { Check } from "lucide-react";
 import { useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const betaFeatures = [
     "Structured form builder",
@@ -30,14 +30,14 @@ const proFeatures = [
 ];
 
 // Variants for the staggered card grid
-const gridVariants = {
+const gridVariants: Variants = {
     hidden: {},
     visible: {
         transition: { staggerChildren: 0.15 },
     },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
     hidden: { y: 40, opacity: 0 },
     visible: {
         y: 0,

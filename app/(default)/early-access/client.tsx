@@ -101,6 +101,8 @@ export default function EarlyAccessClient() {
 
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [serverError, setServerError] = useState("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -117,10 +119,45 @@ export default function EarlyAccessClient() {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setSubmitted(true);
+        setLoading(true);
+        setServerError("");
+        setErrors({});
+
+        try {
+            const response = await fetch("http://localhost:8005/api/leads", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSubmitted(true);
+            } else {
+                if (data.errors && Array.isArray(data.errors)) {
+                    // Map Zod errors back to form fields
+                    const newErrors: { [key: string]: string } = {};
+                    data.errors.forEach((err: any) => {
+                        if (err.path && err.path[0]) {
+                            newErrors[err.path[0]] = err.message;
+                        }
+                    });
+                    setErrors(newErrors);
+                } else {
+                    setServerError(data.message || "Failed to submit form. Please try again.");
+                }
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            setServerError("A network error occurred. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -225,18 +262,38 @@ export default function EarlyAccessClient() {
                                     </div>
                                 </div>
 
+                                {/* Server Error Message */}
+                                {serverError && (
+                                    <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                                        <p className="text-sm text-red-600 font-medium">{serverError}</p>
+                                    </div>
+                                )}
+
                                 {/* Submit Button */}
                                 <button
                                     type="submit"
-                                    className="submit-btn bg-slate-900 w-full mt-8 px-8 py-3 text-white rounded-xl whitespace-nowrap font-bold shadow-lg transition-all duration-300 text-lg tracking-wide group hover:bg-slate-800"
+                                    disabled={loading}
+                                    className="submit-btn bg-slate-900 w-full mt-8 px-8 py-3 text-white rounded-xl whitespace-nowrap font-bold shadow-lg transition-all duration-300 text-lg tracking-wide group hover:bg-slate-800 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     <span className="relative z-10 flex items-center justify-center gap-2">
-                                        Request Access
-                                        <span className="group-hover:translate-x-1 transition-transform duration-200 flex items-center">
-                                            <svg className="w-5 h-5 -mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-                                            </svg>
-                                        </span>
+                                        {loading ? (
+                                            <>
+                                                <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
+                                                Submitting...
+                                            </>
+                                        ) : (
+                                            <>
+                                                Request Access
+                                                <span className="group-hover:translate-x-1 transition-transform duration-200 flex items-center">
+                                                    <svg className="w-5 h-5 -mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                                                    </svg>
+                                                </span>
+                                            </>
+                                        )}
                                     </span>
                                 </button>
                             </form>
