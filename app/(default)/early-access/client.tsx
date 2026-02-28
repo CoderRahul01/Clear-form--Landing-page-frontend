@@ -126,7 +126,7 @@ export default function EarlyAccessClient() {
         setErrors({});
 
         try {
-            const response = await fetch("http://localhost:8005/api/leads", {
+            const response = await fetch("/api/leads", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
