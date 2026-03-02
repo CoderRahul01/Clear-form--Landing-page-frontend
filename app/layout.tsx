@@ -1,6 +1,7 @@
 import "./css/style.css";
 
 import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -11,10 +12,11 @@ const poppins = Poppins({
 
 export const metadata = {
   title: {
-    template: '%s | Clearform',
-    default: 'Clearform | Structured Feedback & AI Form Analytics',
+    template: "%s | Clearform",
+    default: "Clearform | Structured Feedback & AI Form Analytics",
   },
-  description: 'Clearform improves response quality at the source, delivering structured, decision-ready feedback for product and HR teams.',
+  description:
+    "Clearform improves response quality at the source, delivering structured, decision-ready feedback for product and HR teams.",
 };
 
 export default function RootLayout({
@@ -30,6 +32,7 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
