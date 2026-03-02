@@ -92,7 +92,7 @@ export default function SmartVideo({
                     poster={poster}
                     className="w-full h-full object-cover"
                 >
-                    <source src={`${src.replace('.mp4', '')}.webm`} type="video/webm" />
+                    <source src={src.replace('.mp4', '.webm')} type="video/webm" />
                     <source src={src} type="video/mp4" />
                 </video>
             )}
