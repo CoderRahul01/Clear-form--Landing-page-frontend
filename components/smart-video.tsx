@@ -69,8 +69,10 @@ export default function SmartVideo({
                     preload="metadata"
                     poster={poster}
                     className="w-full h-full object-cover"
-                    src={src}
-                />
+                >
+                    <source src={`${src.replace('.mp4', '')}.webm`} type="video/webm" />
+                    <source src={src} type="video/mp4" />
+                </video>
             )}
             {/* Subtle glass overlay */}
             <div className="absolute inset-0 pointer-events-none bg-linear-to-br from-white/8 via-transparent to-transparent" />
