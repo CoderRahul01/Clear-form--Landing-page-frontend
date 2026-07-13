@@ -96,11 +96,13 @@ export default function HeroHome() {
               transition={{ duration: 0.6, delay: 0.65 }}
               className="mb-4 flex flex-wrap items-center gap-3"
             >
-              <Link
-                href="/contact"
+              <a
+                href={PILOT_CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gray-900 px-6 py-3.5 text-base font-semibold text-white shadow-[0_18px_40px_-16px_rgba(0,0,0,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-black hover:shadow-[0_22px_50px_-16px_rgba(0,0,0,0.55)] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[color:var(--color-brand-500)]/60"
               >
-                <span className="relative z-10">Start Pilot for $50</span>
+                <span className="relative z-10">{PILOT_CTA_LABEL_TITLE}</span>
                 <svg
                   className="relative z-10 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
                   fill="none"
@@ -114,7 +116,7 @@ export default function HeroHome() {
                   aria-hidden
                   className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 group-hover:translate-x-full"
                 />
-              </Link>
+              </a>
               <Link
                 href="/#process"
                 onClick={(e) => handleAnchor("/#process", e)}
