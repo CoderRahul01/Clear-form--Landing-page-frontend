@@ -15,7 +15,7 @@ const COLUMNS: { Icon: LucideIcon; title: string; items: string[] }[] = [
     title: "Product",
     items: [
       "Capture up to 300 responses per pilot",
-      "Unlimited forms with a single workspace",
+      "Unlimited forms with 3 workspaces",
       "Keep every submission in one auditable place",
     ],
   },
